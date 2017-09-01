@@ -3,7 +3,7 @@
 html, body{
   -webkit-text-size-adjust: none;
   -webkit-user-select: none;
-  -webkit-touch-callout: none
+  -webkit-touch-callout: none;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -73,9 +73,51 @@ textarea{
   overflow: hidden; 
   text-overflow: ellipsis;
 }
+/* 多行省略号 */
+.moreEllipsis {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 8;
+  overflow: hidden;
+}
 /* 文字两端对齐 */
 .text-justify{
   text-align: justify;
   text-justify: inter-ideograph;
+}
+/* flex */
+.flex {
+  display: flex;
+  display: -webkit-flex; /* Safari */
+}
+/* 竖向 */
+.flex-direction {
+  flex-direction: column;
+}
+/* 换行 */
+.flex-wrap {
+  flex-wrap: wrap;
+}
+/* 对齐方式(两端对齐) */
+.space-between {
+  justify-content: space-between;
+}
+/* 对齐方式(两侧间隔相等) */
+.space-around {
+  justify-content: space-around;
+}
+/* 垂直对齐 */
+.flex-center {
+  align-items: center;
+}
+/* 不缩小 */
+.flex-shrink {
+  flex-shrink: 0;
+}
+/* flex-grow(0，存在剩余空间也不放大), flex-shrink(1,可伸缩) 和 flex-basis(不固定大小) */
+/* auto === 1 1 auto */
+/* none === 0 0 auto */
+.item-flex {
+  flex: auto;
 }
 /* public end */
