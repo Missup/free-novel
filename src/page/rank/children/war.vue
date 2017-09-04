@@ -1,5 +1,5 @@
 <template>
-  <div>
-    home-rank
+	<div>
+    军事战争 
   </div>
 </template>

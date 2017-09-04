@@ -1,0 +1,154 @@
+@charset 'utf-8';
+.nav {
+  background: #9BCD9B;
+  height: 1.8rem;
+  line-height: 1.8rem;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.nav .nav-item {
+  text-align: center;
+  color: #fff;
+  font-size: 0.86rem;
+}
+.nav .nav-item.choosed {
+  border-bottom: 0.12rem solid #000;
+}
+.nav .nav-rank {
+  position: relative;
+}
+.nav i {
+  position: absolute;
+  right: 1.2rem;
+  font-size: 0.86rem;
+}
+/* recommend */
+.recommend {
+  padding-top: 1.8rem;
+}
+.recommend-list {
+  height: 7.3rem;
+  overflow: hidden;
+  padding: .6rem .6rem;
+  border-bottom: 1px solid #ccc;
+}
+.recommend-list .cover {
+  width: 4.6rem;
+  height: 100%;
+}
+.recommend-list .cover img {
+  width: 100%;
+  height: 100%;
+}
+.recommend-list p {
+  font-size: 0.5rem;
+  padding-left: 0.44rem;
+  line-height: 0.72rem;
+  padding-top: 0.16rem;
+}
+/* rank */
+.rank {
+  background-color: #f7f7f7;
+  padding-top: 1.8rem;
+}
+.girl-rank, .boy-rank {
+  padding: 0.4rem .6rem;
+  background-color: #fff;
+}
+.girl-rank {
+  margin-bottom: 0.4rem;
+}
+.boy-rank {
+  margin-bottom: 0.4rem;
+}
+.rank-header {
+  position: relative;
+  height: 1.0rem;
+  line-height: 1.0rem;
+  font-size: 0.88rem;
+  padding-left: 0.6rem;
+}
+.rank-header:before {
+  position: absolute;
+  content: '';
+  background-color: red;
+  width: 0.16rem;
+  height: 0.8rem;
+  left: 0;
+  top: 0.08rem;
+}
+.classify {
+  margin-top: 0.2rem;
+}
+.classify li {
+  float: left;
+  width: 50%;
+  height: 2.0rem;
+  padding: 0 0.2rem;
+  margin-bottom: 0.2rem;
+}
+.classify li a {
+  display: block;
+  position: relative;
+  height: 100%;
+}
+.classify .bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 1;
+  border-radius: 0.2rem;
+}
+.classify .bg img {
+  width: 100%;
+}
+.classify .bg-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .3);
+}
+.classify span {
+  color: #fff;
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  line-height: 2.0rem;
+  text-align: center;
+  font-size: 0.8rem;
+}
+.rank-container {
+  background-color: #fff;
+}
+.rank-content .moreEllipsis {
+  -webkit-line-clamp: 5;
+}
+/* icons */
+.icons {
+  position: fixed;
+  bottom: 0.4rem;
+  right: 0.2rem;
+  z-index: 100;
+}
+.icons li {
+  width: 1.4rem;
+  height: 1.4rem;
+  text-align: center;
+  line-height: 1.4rem;
+  background: #9BCD9B;
+  margin-bottom: 0.1rem;
+}
+.icons li i {
+  font-size: 0.6rem;
+  color: #fff;
+  vertical-align: middle;
+}
