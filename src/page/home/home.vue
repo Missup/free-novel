@@ -5,9 +5,19 @@
       <span :class="{choosed: chooseStatus === 2}" class="item-flex nav-item" @click="chooseStatus = 2">排 行</i></span>
   	</div>
     <div class="recommend" v-if="chooseStatus === 1">
-      <div class="recommend-list" v-for="item in recommendLists">
+      <div class="recommend-list" v-for="item in rankLists">
         <div class="fl cover"><img :src="item.imgUrl" alt=""></div>
-        <p class="moreEllipsis">{{ item.brief }}</p>
+        <div class="info">
+          <div class="info-title">
+            <p class="noWrapEllipsis fl">{{ item.title }}</p>
+            <i class="icon iconfont fr" v-if="item.hotStatus === 1">&#xe757;</i>
+          </div>
+          <div class="info-msg">
+            <p class="rank-author fl noWrapEllipsis">作者：{{ item.author }}</p>
+            <span class="fr">{{ item.tag }}</span>
+          </div>
+          <p class="moreEllipsis">{{ item.brief }}</p>
+        </div>
       </div>
     </div>
     <div class="rank" v-if="chooseStatus === 2">
@@ -65,7 +75,7 @@
                 <img src="/static/images/classify03.jpg" alt="">
                 <div class="bg-mask"></div>
               </div>
-              <span>恋爱网游</span>
+              <span>耽美网游</span>
             </router-link>
           </li>
         </ul>
@@ -130,16 +140,16 @@
         </ul>
       </div>
       <div class="rank-container">
-        <div class="rank-content recommend-list" v-for="item in recommendLists">
+        <div class="rank-content recommend-list" v-for="item in rankLists">
           <div class="fl cover"><img :src="item.imgUrl" alt=""></div>
           <div class="info">
             <div class="info-title">
-              <p class="noWrapEllipsis">{{ item.title }}</p>
-              <i class="icon iconfont">&#xe757;</i>
+              <p class="noWrapEllipsis fl">{{ item.title }}</p>
+              <i class="icon iconfont fr" v-if="item.hotStatus === 1">&#xe757;</i>
             </div>
             <div class="info-msg">
-              <p>作者：{{ item.author }}</p>
-              <span>{{ item.tag }}</span>
+              <p class="rank-author fl noWrapEllipsis">作者：{{ item.author }}</p>
+              <span class="fr">{{ item.tag }}</span>
             </div>
             <p class="moreEllipsis">{{ item.brief }}</p>
           </div>
@@ -154,36 +164,58 @@
   </div>
 </template>
 <script>
-import '../../assets/home.css'
 export default {
   data () {
     return {
       chooseStatus: 1,
-      recommendLists: [
-        {
-          imgUrl: '/static/images/pic01.jpg',
-          brief: '她，是特种雇佣兵的首领，生杀予夺，我行我素。他，是帝国的绝色王爷，铁血冷酷，威震天下。当现代雇佣兵，穿越时空，成为娇小的十三岁王妃。当古代的绝色王爷，浴室之内，对上喋血的利剑谁能降伏谁？ “少打我的主意，否则别怪我不客气。” 乱世浮沉，这天下不尽是男儿的天下风云会聚，且看今生谁主浮沉。她，是特种雇佣兵的首领，生杀予夺，我行我素。他，是帝国的绝色王爷，铁血冷酷，威震天下。当现代雇佣兵，穿越时空，成为娇小的十三岁王妃。当古代的绝色王爷，浴室之内，对上喋血的利剑谁能降伏谁？ “少打我的主意，否则别怪我不客气。” 乱世浮沉，这天下不尽是男儿的天下风云会聚，且看今生谁主浮沉。'
-        },
-        {
-          imgUrl: '/static/images/pic01.jpg',
-          brief: '她，是特种雇佣兵的首领，生杀予夺，我行我素。他，是帝国的绝色王爷，铁血冷酷，威震天下。当现代雇佣兵，穿越时空，成为娇小的十三岁王妃。当古代的绝色王爷，浴室之内，对上喋血的利剑谁能降伏谁？ “少打我的主意，否则别怪我不客气。” 乱世浮沉，这天下不尽是男儿的天下风云会聚，且看今生谁主浮沉。她，是特种雇佣兵的首领，生杀予夺，我行我素。他，是帝国的绝色王爷，铁血冷酷，威震天下。当现代雇佣兵，穿越时空，成为娇小的十三岁王妃。当古代的绝色王爷，浴室之内，对上喋血的利剑谁能降伏谁？ “少打我的主意，否则别怪我不客气。” 乱世浮沉，这天下不尽是男儿的天下风云会聚，且看今生谁主浮沉。'
-        },
-        {
-          imgUrl: '/static/images/pic01.jpg',
-          brief: '她，是特种雇佣兵的首领，生杀予夺，我行我素。他，是帝国的绝色王爷，铁血冷酷，威震天下。当现代雇佣兵，穿越时空，成为娇小的十三岁王妃。当古代的绝色王爷，浴室之内，对上喋血的利剑谁能降伏谁？ “少打我的主意，否则别怪我不客气。” 乱世浮沉，这天下不尽是男儿的天下风云会聚，且看今生谁主浮沉。她，是特种雇佣兵的首领，生杀予夺，我行我素。他，是帝国的绝色王爷，铁血冷酷，威震天下。当现代雇佣兵，穿越时空，成为娇小的十三岁王妃。当古代的绝色王爷，浴室之内，对上喋血的利剑谁能降伏谁？ “少打我的主意，否则别怪我不客气。” 乱世浮沉，这天下不尽是男儿的天下风云会聚，且看今生谁主浮沉。'
-        },
-        {
-          imgUrl: '/static/images/pic01.jpg',
-          brief: '她，是特种雇佣兵的首领，生杀予夺，我行我素。他，是帝国的绝色王爷，铁血冷酷，威震天下。当现代雇佣兵，穿越时空，成为娇小的十三岁王妃。当古代的绝色王爷，浴室之内，对上喋血的利剑谁能降伏谁？ “少打我的主意，否则别怪我不客气。” 乱世浮沉，这天下不尽是男儿的天下风云会聚，且看今生谁主浮沉。她，是特种雇佣兵的首领，生杀予夺，我行我素。他，是帝国的绝色王爷，铁血冷酷，威震天下。当现代雇佣兵，穿越时空，成为娇小的十三岁王妃。当古代的绝色王爷，浴室之内，对上喋血的利剑谁能降伏谁？ “少打我的主意，否则别怪我不客气。” 乱世浮沉，这天下不尽是男儿的天下风云会聚，且看今生谁主浮沉。'
-        }
-      ],
       rankLists: [
         {
           imgUrl: '/static/images/pic01.jpg',
           title: '凤临天下：王妃十三岁',
           author: '一世风流',
           tag: '穿越架空',
-          brief: '她，是特种雇佣兵的首领，生杀予夺，我行我素。他，是帝国的绝色王爷，铁血冷酷，威震天下。当现代雇佣兵，穿越时空，成为娇小的十三岁王妃。当古代的绝色王爷，浴室之内，对上喋血的利剑谁能降伏谁？ “少打我的主意，否则别怪我不客气。” 乱世浮沉，这天下不尽是男儿的天下风云会聚，且看今生谁主浮沉。。'
+          brief: '她，是特种雇佣兵的首领，生杀予夺，我行我素。他，是帝国的绝色王爷，铁血冷酷，威震天下。当现代雇佣兵，穿越时空，成为娇小的十三岁王妃。当古代的绝色王爷，浴室之内，对上喋血的利剑谁能降伏谁？ “少打我的主意，否则别怪我不客气。” 乱世浮沉，这天下不尽是男儿的天下风云会聚，且看今生谁主浮沉。。',
+          hotStatus: 1
+        },
+        {
+          imgUrl: '/static/images/pic01.jpg',
+          title: '凤临天下：王妃十三岁',
+          author: '一世风流',
+          tag: '穿越架空',
+          brief: '她，是特种雇佣兵的首领，生杀予夺，我行我素。他，是帝国的绝色王爷，铁血冷酷，威震天下。当现代雇佣兵，穿越时空，成为娇小的十三岁王妃。当古代的绝色王爷，浴室之内，对上喋血的利剑谁能降伏谁？ “少打我的主意，否则别怪我不客气。” 乱世浮沉，这天下不尽是男儿的天下风云会聚，且看今生谁主浮沉。。',
+          hotStatus: 1
+        },
+        {
+          imgUrl: '/static/images/pic01.jpg',
+          title: '凤临天下：王妃十三岁',
+          author: '一世风流',
+          tag: '穿越架空',
+          brief: '她，是特种雇佣兵的首领，生杀予夺，我行我素。他，是帝国的绝色王爷，铁血冷酷，威震天下。当现代雇佣兵，穿越时空，成为娇小的十三岁王妃。当古代的绝色王爷，浴室之内，对上喋血的利剑谁能降伏谁？ “少打我的主意，否则别怪我不客气。” 乱世浮沉，这天下不尽是男儿的天下风云会聚，且看今生谁主浮沉。。',
+          hotStatus: 1
+        },
+        {
+          imgUrl: '/static/images/pic01.jpg',
+          title: '凤临天下：王妃十三岁',
+          author: '一世风流',
+          tag: '穿越架空',
+          brief: '她，是特种雇佣兵的首领，生杀予夺，我行我素。他，是帝国的绝色王爷，铁血冷酷，威震天下。当现代雇佣兵，穿越时空，成为娇小的十三岁王妃。当古代的绝色王爷，浴室之内，对上喋血的利剑谁能降伏谁？ “少打我的主意，否则别怪我不客气。” 乱世浮沉，这天下不尽是男儿的天下风云会聚，且看今生谁主浮沉。。',
+          hotStatus: 0
+        },
+        {
+          imgUrl: '/static/images/pic01.jpg',
+          title: '凤临天下：王妃十三岁',
+          author: '一世风流',
+          tag: '穿越架空',
+          brief: '她，是特种雇佣兵的首领，生杀予夺，我行我素。他，是帝国的绝色王爷，铁血冷酷，威震天下。当现代雇佣兵，穿越时空，成为娇小的十三岁王妃。当古代的绝色王爷，浴室之内，对上喋血的利剑谁能降伏谁？ “少打我的主意，否则别怪我不客气。” 乱世浮沉，这天下不尽是男儿的天下风云会聚，且看今生谁主浮沉。。',
+          hotStatus: 0
+        },
+        {
+          imgUrl: '/static/images/pic01.jpg',
+          title: '凤临天下：王妃十三岁',
+          author: '一世风流',
+          tag: '穿越架空',
+          brief: '她，是特种雇佣兵的首领，生杀予夺，我行我素。他，是帝国的绝色王爷，铁血冷酷，威震天下。当现代雇佣兵，穿越时空，成为娇小的十三岁王妃。当古代的绝色王爷，浴室之内，对上喋血的利剑谁能降伏谁？ “少打我的主意，否则别怪我不客气。” 乱世浮沉，这天下不尽是男儿的天下风云会聚，且看今生谁主浮沉。。',
+          hotStatus: 0
         }
       ],
       currentPosition: 0,
@@ -208,3 +240,212 @@ export default {
   }
 }
 </script>
+<style scoped>
+.nav {
+  background: #9BCD9B;
+  height: 1.8rem;
+  line-height: 1.8rem;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  width: 100%;
+  max-width: 15.0rem;
+}
+.nav .nav-item {
+  text-align: center;
+  color: #fff;
+  font-size: 0.86rem;
+}
+.nav .nav-item.choosed {
+  border-bottom: 0.12rem solid #000;
+}
+.nav .nav-rank {
+  position: relative;
+}
+.nav i {
+  position: absolute;
+  right: 1.2rem;
+  font-size: 0.86rem;
+}
+/* recommend */
+.recommend {
+  padding-top: 1.8rem;
+  background-color: #fff;
+}
+.recommend-list {
+  height: 7rem;
+  overflow: hidden;
+  padding: .6rem .6rem;
+  border-bottom: 1px solid #eee;
+}
+.recommend-list:last-child {
+  border-bottom: none;
+}
+.recommend-list .cover {
+  width: 4.6rem;
+  height: 100%;
+}
+.recommend-list .cover img {
+  width: 100%;
+  height: 100%;
+}
+.recommend-list p {
+  font-size: 0.5rem;
+  padding-left: 0.44rem;
+  line-height: 0.72rem;
+  padding-top: 0.16rem;
+}
+.recommend-list .info-msg {
+  margin: 0;
+}
+/* rank */
+.rank {
+  padding-top: 1.8rem;
+}
+.girl-rank, .boy-rank {
+  padding: 0.4rem .6rem;
+  background-color: #fff;
+}
+.girl-rank {
+  margin-bottom: 0.4rem;
+}
+.boy-rank {
+  margin-bottom: 0.4rem;
+}
+.rank-header {
+  position: relative;
+  height: 1.0rem;
+  line-height: 1.0rem;
+  font-size: 0.88rem;
+  padding-left: 0.6rem;
+}
+.rank-header:before {
+  position: absolute;
+  content: '';
+  background-color: red;
+  width: 0.16rem;
+  height: 0.8rem;
+  left: 0;
+  top: 0.08rem;
+}
+.classify {
+  margin-top: 0.2rem;
+}
+.classify li {
+  float: left;
+  width: 50%;
+  height: 2.0rem;
+  padding: 0 0.2rem;
+  margin-bottom: 0.2rem;
+}
+.classify li a {
+  display: block;
+  position: relative;
+  height: 100%;
+}
+.classify .bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 1;
+  border-radius: 0.2rem;
+}
+.classify .bg img {
+  width: 100%;
+}
+.classify .bg-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .3);
+}
+.classify span {
+  color: #fff;
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  line-height: 2.0rem;
+  text-align: center;
+  font-size: 0.8rem;
+}
+.rank-container {
+  background-color: #fff;
+}
+.rank-content {
+  height: 6rem;
+}
+.rank-content .cover {
+  width: 3.8rem;
+}
+.rank-content .moreEllipsis {
+  -webkit-line-clamp: 3;
+}
+.info {
+  overflow: hidden;
+}
+.info-title {
+  height: 1.0rem;
+  line-height: 1.0rem;
+}
+.info-title p {
+  height: 100%;
+  line-height: 1.0rem;
+  padding-top: 0;
+  font-size: 0.6rem;
+  font-weight: bold;
+  max-width: 8.0rem;
+}
+.info-title i {
+  color: red;
+  font-size: 0.6rem;
+}
+.info-msg {
+  height: 1.0rem;
+  line-height: 1.0rem;
+  font-size: 0.5rem;
+  overflow: hidden;
+  margin: 0.12rem 0;
+}
+.info-msg span {
+  border: 1px solid #9BCD9B;
+  height: 100%;
+  border-radius: 0.1rem;
+  padding: 0 0.2rem;
+  color: #9BCD9B;
+}
+.info-msg .rank-author {
+  height: 100%;
+  line-height: 1.0rem;
+  padding-top: 0;
+  max-width: 6.6rem;
+}
+/* icons */
+.icons {
+  position: fixed;
+  bottom: 0.4rem;
+  right: 0.2rem;
+  z-index: 100;
+}
+.icons li {
+  width: 1.4rem;
+  height: 1.4rem;
+  text-align: center;
+  line-height: 1.4rem;
+  background: #9BCD9B;
+  margin-bottom: 0.1rem;
+}
+.icons li i {
+  font-size: 0.6rem;
+  color: #fff;
+  vertical-align: middle;
+}
+</style>
