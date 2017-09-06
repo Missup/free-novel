@@ -20,6 +20,10 @@
     </div>
     <div class="detail-brief">{{ detailData.brief }}</div>
     <div class="detail-comments">
+      <div class="comments-header">
+        <span class="comments-title fl">书友评价</span>
+        <span class="comments-write fr"><i class="icon iconfont">&#xe761;</i>写评价</span>
+      </div>
       <div class="detail-comments-part" v-for="comment in commentsData">
         <div class="detail-comments-author">
           <div class="detail-comments-avatar fl"><img :src="comment.author.avatar" alt=""></div>
@@ -164,7 +168,32 @@ export default {
 .detail-comments {
   background-color: #fff;
   padding: 0.6rem;
-  padding-top: 0;
+  padding-top: 0.4rem;
+}
+.comments-header {
+  height: 1.0rem;
+  line-height: 1.0rem;
+}
+.comments-title {
+  position: relative;
+  padding-left: 0.4rem;
+}
+.comments-title:before {
+  position: absolute;
+  content: '';
+  width: 0.16rem;
+  height: 0.5rem;
+  background-color: #9BCD9B;
+  left: 0;
+  top: 0.2rem;
+}
+.comments-write {
+  color: #9BCD9B;
+}
+.comments-write i {
+  font-size: 0.5rem;
+  margin-right: 0.2rem;
+  color: #9BCD9B;
 }
 .detail-comments-part {
   border-bottom: 1px solid #eee;
@@ -211,6 +240,8 @@ export default {
   width: 100%;
   max-width: 15.0rem;
   font-size: 0.72rem;
+  font-weight: bold;
+  color: #fff;
 }
 .download i {
   font-size: 0.72rem;

@@ -6,18 +6,20 @@
   	</div>
     <div class="recommend" v-if="chooseStatus === 1">
       <div class="recommend-list" v-for="item in rankLists">
-        <div class="fl cover"><img :src="item.imgUrl" alt=""></div>
-        <div class="info">
-          <div class="info-title">
-            <p class="noWrapEllipsis fl">{{ item.title }}</p>
-            <i class="icon iconfont fr" v-if="item.hotStatus === 1">&#xe757;</i>
+        <router-link :to="'/detail/' + item.id">
+          <div class="fl cover"><img :src="item.imgUrl" alt=""></div>
+          <div class="info">
+            <div class="info-title">
+              <p class="noWrapEllipsis fl">{{ item.title }}</p>
+              <i class="icon iconfont fr" v-if="item.hotStatus === 1">&#xe757;</i>
+            </div>
+            <div class="info-msg">
+              <p class="rank-author fl noWrapEllipsis">作者：{{ item.author }}</p>
+              <span class="fr">{{ item.tag }}</span>
+            </div>
+            <p class="moreEllipsis">{{ item.brief }}</p>
           </div>
-          <div class="info-msg">
-            <p class="rank-author fl noWrapEllipsis">作者：{{ item.author }}</p>
-            <span class="fr">{{ item.tag }}</span>
-          </div>
-          <p class="moreEllipsis">{{ item.brief }}</p>
-        </div>
+        </router-link>
       </div>
     </div>
     <div class="rank" v-if="chooseStatus === 2">
@@ -141,24 +143,27 @@
       </div>
       <div class="rank-container">
         <div class="rank-content recommend-list" v-for="item in rankLists">
-          <div class="fl cover"><img :src="item.imgUrl" alt=""></div>
-          <div class="info">
-            <div class="info-title">
-              <p class="noWrapEllipsis fl">{{ item.title }}</p>
-              <i class="icon iconfont fr" v-if="item.hotStatus === 1">&#xe757;</i>
+          <router-link :to="'/detail/' + item.id">
+            <div class="fl cover"><img :src="item.imgUrl" alt=""></div>
+            <div class="info">
+              <div class="info-title">
+                <p class="noWrapEllipsis fl">{{ item.title }}</p>
+                <i class="icon iconfont fr" v-if="item.hotStatus === 1">&#xe757;</i>
+              </div>
+              <div class="info-msg">
+                <p class="rank-author fl noWrapEllipsis">作者：{{ item.author }}</p>
+                <span class="fr">{{ item.tag }}</span>
+              </div>
+              <p class="moreEllipsis">{{ item.brief }}</p>
             </div>
-            <div class="info-msg">
-              <p class="rank-author fl noWrapEllipsis">作者：{{ item.author }}</p>
-              <span class="fr">{{ item.tag }}</span>
-            </div>
-            <p class="moreEllipsis">{{ item.brief }}</p>
-          </div>
+          </router-link>
         </div>
       </div>
     </div>
     <ul class="icons">
       <li><router-link to="/search"><i class="icon iconfont">&#xe65c;</i></router-link></li>
-      <li><router-link to="/help"><i class="icon iconfont">&#xe691;</i></router-link></li>
+      <li v-if="loginStatus"><router-link to="/user"><i class="icon iconfont">&#xe78b;</i></router-link></li>
+      <li v-if="!loginStatus"><router-link to="/login"><i class="icon iconfont">&#xe78b;</i></router-link></li>
       <li @click="toTop"><i class="icon iconfont">&#xe69e;</i></li>
     </ul>
   </div>
@@ -170,6 +175,7 @@ export default {
       chooseStatus: 1,
       rankLists: [
         {
+          id: 1,
           imgUrl: '/static/images/pic01.jpg',
           title: '凤临天下：王妃十三岁',
           author: '一世风流',
@@ -178,6 +184,7 @@ export default {
           hotStatus: 1
         },
         {
+          id: 1,
           imgUrl: '/static/images/pic01.jpg',
           title: '凤临天下：王妃十三岁',
           author: '一世风流',
@@ -186,6 +193,7 @@ export default {
           hotStatus: 1
         },
         {
+          id: 1,
           imgUrl: '/static/images/pic01.jpg',
           title: '凤临天下：王妃十三岁',
           author: '一世风流',
@@ -194,6 +202,7 @@ export default {
           hotStatus: 1
         },
         {
+          id: 1,
           imgUrl: '/static/images/pic01.jpg',
           title: '凤临天下：王妃十三岁',
           author: '一世风流',
@@ -202,6 +211,7 @@ export default {
           hotStatus: 0
         },
         {
+          id: 1,
           imgUrl: '/static/images/pic01.jpg',
           title: '凤临天下：王妃十三岁',
           author: '一世风流',
@@ -210,6 +220,7 @@ export default {
           hotStatus: 0
         },
         {
+          id: 1,
           imgUrl: '/static/images/pic01.jpg',
           title: '凤临天下：王妃十三岁',
           author: '一世风流',
@@ -219,7 +230,8 @@ export default {
         }
       ],
       currentPosition: 0,
-      timer: null
+      timer: null,
+      loginStatus: false
     }
   },
   methods: {
@@ -280,6 +292,9 @@ export default {
   overflow: hidden;
   padding: .6rem .6rem;
   border-bottom: 1px solid #eee;
+}
+.recommend-list a {
+  color: #333;
 }
 .recommend-list:last-child {
   border-bottom: none;
@@ -440,8 +455,9 @@ export default {
   height: 1.4rem;
   text-align: center;
   line-height: 1.4rem;
-  background: #9BCD9B;
   margin-bottom: 0.1rem;
+  background: rgba(155, 205, 155, .9);
+  box-shadow: 0 0 0.12rem rgba(0, 0, 0, .3);
 }
 .icons li i {
   font-size: 0.6rem;

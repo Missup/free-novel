@@ -25,8 +25,30 @@ export default [{
       component: r => require.ensure([], () => r(require('../page/search/search')), 'search')
     },
     {
-      path: '/help',
-      component: r => require.ensure([], () => r(require('../page/help/help')), 'help')
+      path: '/user',
+      component: r => require.ensure([], () => r(require('../page/user/user')), 'user'),
+      children: [
+        {
+          path: 'like',
+          component: r => require.ensure([], () => r(require('../page/user/children/like')), 'like')
+        },
+        {
+          path: 'comment',
+          component: r => require.ensure([], () => r(require('../page/user/children/comment')), 'comment')
+        }
+      ]
+    },
+    {
+      path: '/login',
+      component: r => require.ensure([], () => r(require('../page/login/login')), 'login')
+    },
+    {
+      path: '/register',
+      component: r => require.ensure([], () => r(require('../page/login/register')), 'register')
+    },
+    {
+      path: '/setpassword',
+      component: r => require.ensure([], () => r(require('../page/login/setpassword')), 'setpassword')
     }
   ]
 }]
