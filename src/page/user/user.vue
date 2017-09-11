@@ -6,7 +6,7 @@
         <p class="user-name">sup</p>
         <p class="user-brief moreEllipsis">为上王者而读书~</p>
       </div>
-      <i class="icon iconfont fr">&#xe649;</i>
+      <router-link to="/user/edit"><i class="icon iconfont fr">&#xe649;</i></router-link>
     </div>
     <ul class="user-links">
       <li class="clearfix">
