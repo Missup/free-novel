@@ -35,21 +35,21 @@ export default [{
         {
           path: 'comment',
           component: r => require.ensure([], () => r(require('../page/user/children/comment')), 'comment')
-        },
-        {
-          path: 'edit',
-          component: r => require.ensure([], () => r(require('../page/user/children/edit/edit')), 'edit'),
-          children: [
-            {
-              path: 'username',
-              component: r => require.ensure([], () => r(require('../page/user/children/edit/children/username')), 'username')
-            },
-            {
-              path: 'avatar',
-              component: r => require.ensure([], () => r(require('../page/user/children/edit/children/avatar')), 'avatar')
-            }
-          ]
         }
+        // {
+        //   path: 'edit',
+        //   component: r => require.ensure([], () => r(require('../page/user/children/edit/edit')), 'edit'),
+        //   children: [
+        //     {
+        //       path: 'username',
+        //       component: r => require.ensure([], () => r(require('../page/user/children/edit/children/username')), 'username')
+        //     },
+        //     {
+        //       path: 'avatar',
+        //       component: r => require.ensure([], () => r(require('../page/user/children/edit/children/avatar')), 'avatar')
+        //     }
+        //   ]
+        // }
       ]
     },
     {
