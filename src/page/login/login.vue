@@ -12,6 +12,25 @@
     </div>
   </div>
 </template>
+<script>
+import CHAT from '../../client.js'
+export default {
+  data () {
+    return {
+      CHAT
+    }
+  },
+  components: {
+  },
+  created () {
+    CHAT.connect()
+  },
+  mounted () {
+  },
+  methods: {
+  }
+}
+</script>
 <style scoped>
 .login {
   width: 100%;
