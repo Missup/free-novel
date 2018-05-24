@@ -24,7 +24,7 @@
 
 import SockJS from 'sockjs-client'
 let socket
-let url = '192.168.10.222:8080/dmp-admin'
+let url = '192.168.10.222:8081/dmp-admin'
 // let url = '127.0.0.1:8181'
 const CHAT = {
   connect: function () {

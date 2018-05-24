@@ -9,6 +9,9 @@
         <router-link to="/register" class="fl">手机快速注册</router-link>
         <router-link to="/register" class="fr">找回密码</router-link>
       </div>
+      <div>
+        <router-link to="/test">测试滚动条</router-link>
+      </div>
     </div>
   </div>
 </template>

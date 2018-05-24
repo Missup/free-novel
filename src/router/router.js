@@ -63,6 +63,10 @@ export default [{
     {
       path: '/setpassword',
       component: r => require.ensure([], () => r(require('../page/login/setpassword')), 'setpassword')
+    },
+    {
+      path: '/test',
+      component: r => require.ensure([], () => r(require('../page/login/test')), 'test')
     }
   ]
 }]
