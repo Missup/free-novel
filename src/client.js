@@ -1,27 +1,4 @@
-// import io from 'socket.io-client'
-// import settings from './settings.js'
-// const CHAT = {
-//   allData: null,
-//   isConnect: false,
-//   // 断开连接
-//   disconnect: function () {
-//     this.socket.disconnect()
-//     CHAT.isConnect = false
-//   },
-//   init: function () {
-//     // 连接websocket后端服务器
-//     this.socket = io.connect(settings.socket)
-//     console.log('this.socket', this.socket)
-//     this.socket.on('open', function (val) {
-//       console.log('已连接', val)
-//       CHAT.allData = val
-//       CHAT.isConnect = true
-//     })
-//     // this.socket.emit('open', '11111')
-//   }
-// }
-// export default CHAT
-
+/* jshint esversion: 6 */
 import SockJS from 'sockjs-client'
 let socket
 let url = '192.168.10.222:8081/dmp-admin'
