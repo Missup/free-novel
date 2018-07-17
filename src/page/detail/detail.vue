@@ -6,7 +6,7 @@
         <p class="detail-title noWrapEllipsis">{{ detailData.title }}</p>
         <p class="detail-author noWrapEllipsis">作者：{{ detailData.author }}</p>
         <p class="detail-tags">
-          <span v-for="tag in detailData.tags">{{ tag }}</span>
+          <span v-for="tag in detailData.tags" :key="tag">{{ tag }}</span>
         </p>
         <p class="detail-download moreEllipsis">下载量：{{ detailData.download }}</p>
         <div class="detail-like">
@@ -24,7 +24,7 @@
         <span class="comments-title fl">书友评价</span>
         <span class="comments-write fr"><i class="icon iconfont">&#xe761;</i>写评价</span>
       </div>
-      <div class="detail-comments-part" v-for="comment in commentsData">
+      <div class="detail-comments-part" v-for="comment in commentsData" :key="comment">
         <div class="detail-comments-author">
           <div class="detail-comments-avatar fl"><img :src="comment.author.avatar" alt=""></div>
           <p class="detail-comments-nickname">{{ comment.author.nickname }}</p>

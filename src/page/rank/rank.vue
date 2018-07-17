@@ -1,10 +1,10 @@
 <template>
   <div class="rank">
   	<ul class="flex nav">
-      <li class="item-flex" v-for="(item, index) in navLists" :class="{active: isClick === index}" @click="changeData(index)">{{ item }}</li>
+      <li class="item-flex" v-for="(item, index) in navLists" :key="index" :class="{active: isClick === index}" @click="changeData(index)">{{ item }}</li>
     </ul>
   	<div class="rank-container">
-  		<div class="rank-content" v-for="item in rankLists">
+  		<div class="rank-content" v-for="item in rankLists" :key="item">
         <div class="fl cover"><img :src="item.imgUrl" alt=""></div>
         <div class="info">
           <div class="info-title">

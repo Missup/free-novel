@@ -2,10 +2,10 @@
   <div class="home">
   	<div class="nav flex">
       <span :class="{choosed: chooseStatus === 1}" class="item-flex nav-item" @click="chooseStatus = 1">推 荐</span>
-      <span :class="{choosed: chooseStatus === 2}" class="item-flex nav-item" @click="chooseStatus = 2">排 行</i></span>
+      <span :class="{choosed: chooseStatus === 2}" class="item-flex nav-item" @click="chooseStatus = 2">排 行</span>
   	</div>
     <div class="recommend" v-if="chooseStatus === 1">
-      <div class="recommend-list" v-for="item in rankLists">
+      <div class="recommend-list" v-for="item in rankLists" :key="item">
         <router-link :to="'/detail/' + item.id">
           <div class="fl cover"><img :src="item.imgUrl" alt=""></div>
           <div class="info">
@@ -142,7 +142,7 @@
         </ul>
       </div>
       <div class="rank-container">
-        <div class="rank-content recommend-list" v-for="item in rankLists">
+        <div class="rank-content recommend-list" v-for="item in rankLists" :key="item">
           <router-link :to="'/detail/' + item.id">
             <div class="fl cover"><img :src="item.imgUrl" alt=""></div>
             <div class="info">

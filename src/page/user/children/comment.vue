@@ -2,7 +2,7 @@
   <div class="comment">
     <div class="comment-bg"></div>
     <div class="comment-container">
-      <div class="detail-comments-part" v-for="comment in commentsData">
+      <div class="detail-comments-part" v-for="comment in commentsData" :key="comment">
         <div class="detail-comments-author">
           <div class="detail-comments-header fl">
             <div class="detail-comments-avatar fl"><img :src="comment.author.avatar" alt=""></div>

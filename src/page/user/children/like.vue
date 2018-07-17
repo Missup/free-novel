@@ -2,7 +2,7 @@
   <div class="like">
     <div class="like-bg"></div>
     <div class="like-container">
-      <div class="like-content" v-for="item in likeData">
+      <div class="like-content" v-for="item in likeData" :key="item">
         <div class="like-cover fl"><img :src="item.imgUrl" alt=""></div>
         <div class="like-info">
           <p class="like-title noWrapEllipsis">{{ item.title }}</p>

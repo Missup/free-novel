@@ -10,12 +10,12 @@
     <div class="hot-search" v-if="getStatus === 0">
       <p class="hot-search-title">热门搜索：</p>
       <ul class="hot-search-lists">
-        <li v-for="item in hotLists" class="noWrapEllipsis"><router-link :to="'/detail/' + item.id">{{ item.title }}</router-link></li>
+        <li v-for="item in hotLists" :key="item" class="noWrapEllipsis"><router-link :to="'/detail/' + item.id">{{ item.title }}</router-link></li>
       </ul>
     </div>
     <div v-if="getStatus === 1">
       <p class="result">搜索结果：</p>
-      <div class="rank-content" v-for="item in rankLists">
+      <div class="rank-content" v-for="item in rankLists" :key="item">
         <router-link :to="'/detail/' + item.id">
           <div class="fl cover"><img :src="item.imgUrl" alt=""></div>
           <div class="info">
